@@ -1,0 +1,14 @@
+github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
+github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/supabase-community/functions-go v0.0.0-20220927045802-22373e6cb51d h1:LOrsumaZy615ai37h9RjUIygpSubX+F+6rDct1LIag0=
+github.com/supabase-community/functions-go v0.0.0-20220927045802-22373e6cb51d/go.mod h1:nnIju6x3+OZSojtGQCQzu0h3kv4HdIZk+UWCnNxtSak=
+github.com/supabase-community/gotrue-go v1.2.0 h1:Zm7T5q3qbuwPgC6xyomOBKrSb7X5dvmjDZEmNST7MoE=
+github.com/supabase-community/gotrue-go v1.2.0/go.mod h1:86DXBiAUNcbCfgbeOPEh0PQxScLfowUbYgakETSFQOw=
+github.com/supabase-community/postgrest-go v0.0.10 h1:UAwkwkw48VYM3VSm0g+9ssgNhlTgaY5Er7jQoGdEiY8=
+github.com/supabase-community/postgrest-go v0.0.10/go.mod h1:VOvvdKqbI6Pr6rpA4XG+05dRPSDwJA3wc9Qer9N8czU=
+github.com/supabase-community/storage-go v0.7.0 h1:cJ8HLbbnL54H5rHPtHfiwtpRwcbDfA3in9HL/ucHnqA=
+github.com/supabase-community/storage-go v0.7.0/go.mod h1:oBKcJf5rcUXy3Uj9eS5wR6mvpwbmvkjOtAA+4tGcdvQ=
+github.com/supabase-community/supabase-go v0.0.2 h1:6bnNWLtZXA09hJNrZtIf8bVFCvuidex6kdceHox1qmU=
+github.com/supabase-community/supabase-go v0.0.2/go.mod h1:wqQD0oWuNw297usX24I9wi14t+qSor16qedxXH06dEI=
+github.com/tomnomnom/linkheader v0.0.0-20180905144013-02ca5825eb80 h1:nrZ3ySNYwJbSpD6ce9duiP+QkD3JuLCcWkdaehUS/3Y=
+github.com/tomnomnom/linkheader v0.0.0-20180905144013-02ca5825eb80/go.mod h1:iFyPdL66DjUD96XmzVL3ZntbzcflLnznH0fr99w5VqE=
