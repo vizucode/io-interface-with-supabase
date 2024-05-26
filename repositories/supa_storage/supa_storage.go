@@ -48,12 +48,14 @@ func (supa *supaClient) Write(data []byte) (n int, err error) {
 supaClient.close, will close and start uploading to supabase
 */
 func (supa *supaClient) Close() (err error) {
-	_, err = supa.Storage.UploadFile(supa.bucket, supa.storagePath, supa.objectData)
-	if err != nil {
-		return err
+	if supa.objectData.Len() > 0 {
+		_, err = supa.Storage.UploadFile(supa.bucket, supa.storagePath, supa.objectData)
+		if err != nil {
+			return err
+		}
+		supa.objectData.Reset()
 	}
 
-	supa.objectData.Reset()
 	return nil
 }
 
