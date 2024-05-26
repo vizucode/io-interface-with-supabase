@@ -12,7 +12,7 @@ import (
 type SuperPower struct{}
 
 /*
-Cast will create new random file then will write into io.WriteCloser
+Cast will create new random text then will write into io.WriteCloser
 */
 func (w *SuperPower) Cast(f io.WriteCloser) (resp error) {
 
@@ -49,14 +49,19 @@ func (w *SuperPower) Observe(f io.ReadCloser) (resp error) {
 		return err
 	}
 
-	data, err := io.ReadAll(f)
+	data := make([]byte, 1024)
+	_, err = f.Read(data)
 	if err != nil {
+		if err == io.EOF {
+			return nil
+		}
 		log.Println(err)
 		return err
 	}
+
 	defer f.Close()
 
-	err = os.WriteFile(path, data, 0644)
+	err = os.WriteFile(path+"/output.txt", data, 0644)
 	if err != nil {
 		log.Println(err)
 		return err
@@ -68,7 +73,7 @@ func (w *SuperPower) Observe(f io.ReadCloser) (resp error) {
 func main() {
 
 	// initiate supabase object
-	supaCli := supastorage.NewSupaClient("https://qytwpijdbksagnkuqgay.supabase.co/storage/v1", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF5dHdwaWpkYmtzYWdua3VxZ2F5Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNTM2MTg0MiwiZXhwIjoyMDMwOTM3ODQyfQ.idV0yiC5VvRSBmwmVNDCpXcZti-XAlnAUTHvqRxHb98", "testing")
+	supaCli := supastorage.NewSupaClient("API_URL", "API_KEY", "BUCKET_NAME")
 
 	Wizard := SuperPower{}
 
