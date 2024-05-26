@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"io"
 
-	"github.com/supabase-community/supabase-go"
+	storage_go "github.com/supabase-community/storage-go"
 )
 
 /*
@@ -15,7 +15,7 @@ type supaClient struct {
 	bucket      string
 	storagePath string
 	objectData  *bytes.Buffer
-	*supabase.Client
+	*storage_go.Client
 }
 
 /*
@@ -23,10 +23,7 @@ NewSupaClient to create an instance of supaClient
 */
 func NewSupaClient(api_url, api_key, bucket string) *supaClient {
 
-	client, err := supabase.NewClient(api_url, api_url, nil)
-	if err != nil {
-		panic(err)
-	}
+	client := storage_go.NewClient(api_url, api_key, nil)
 
 	return &supaClient{
 		bucket,
@@ -49,7 +46,7 @@ supaClient.close, will close and start uploading to supabase
 */
 func (supa *supaClient) Close() (err error) {
 	if supa.objectData.Len() > 0 {
-		_, err = supa.Storage.UploadFile(supa.bucket, supa.storagePath, supa.objectData)
+		_, err = supa.UploadFile(supa.bucket, supa.storagePath, supa.objectData)
 		if err != nil {
 			return err
 		}
@@ -63,7 +60,7 @@ func (supa *supaClient) Close() (err error) {
 supaClient.Read, will read data from supabase
 */
 func (supa *supaClient) Read(p []byte) (n int, err error) {
-	data, err := supa.Storage.DownloadFile(supa.bucket, supa.storagePath)
+	data, err := supa.DownloadFile(supa.bucket, supa.storagePath)
 	if err != nil {
 		return 0, err
 	}
